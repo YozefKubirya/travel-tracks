@@ -37,30 +37,7 @@ ul{
   padding: 0;
   margin: 0;
 }
-.cardList{
-  display:flex ;
-  flex-direction: column;
-  gap: 5px;
 
-}
-.card {
- width: 400px;
- 
- border: 1px solid black;
- border-radius: 3px;
- padding: 5px;
- 
-
-}
-.cardDescription{
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: #475467;
-  font-size: 16px;
-  line-height: 24px;
-  margin-bottom: 24px;
-}
 .read-the-docs {
   color: #888;
 }

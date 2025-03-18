@@ -141,27 +141,32 @@ export const TrackList = () => {
       
    </Formik>
    <div>
-   <ul className="cardList">
+   <ul className={css.cardList}>
           {campers.map((camper) => (
-            <li key={camper.id} className="card">
-              <p>{camper.name}</p>
+            <li key={camper.id} className={css.card}>
+                
+                  <div className={css.cardImgContainer}>
+                  <img src={camper.gallery[0].thumb} alt="thumb-image" className={css.cardImg}/>
+                  </div>
+                  <div className={css.cardContent}>
+                  <h2>{camper.name}</h2>
               <p>{camper.location}</p>
-              <p className="cardDescription">{camper.description}</p>
+              <p className={css.cardDescription}>{camper.description}</p>
               <p>{camper.transmition}</p>
               <p>{camper.engine}</p>
               <p>{camper.AC}AC</p>
               <p>{camper.kitchen}kitchen</p>
-              <img src={camper.gallery[0].thumb} alt="thumb-image" />
+                  </div>
+               
+              
+              
+                   
             </li>
           ))}
         </ul>
-
-  
         {hasNextPage &&  <button onClick={handleLoadMore } className={css.loadMoreBtn}>Load More</button>}
-
+        </div>
    </div>
-        
-      </div>
       </>
    )
 }
