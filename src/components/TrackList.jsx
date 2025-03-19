@@ -10,11 +10,12 @@ import css from './TrackList.module.css';
 import { selectFilters, selectForm, selectLocation } from "../redux/filters/selector.js";
 import { setFilters, } from "../redux/filters/slice.js";
 import { formTypeArray } from "../utils/filters/formTypeFilter.js";
-import { BsWind, BsCupHot,BsMap} from "react-icons/bs";
+import { BsWind, BsCupHot, BsMap, BsSuitHeart} from "react-icons/bs";
 import { LiaSitemapSolid } from "react-icons/lia";
-import { FaTv } from "react-icons/fa";
+import { FaTv, FaStar } from "react-icons/fa";
 import { PiShower } from "react-icons/pi";
 
+import { FaGasPump } from "react-icons/fa6";
 
 const icons = {
    AC:BsWind,
@@ -22,8 +23,10 @@ const icons = {
    kitchen:BsCupHot,
    TV:FaTv,
    bathroom: PiShower,
+   gas:FaGasPump
 
 }
+
 export const TrackList = () => {
    const dispatch = useDispatch();
    const page = useSelector(selectCurrentPage);
@@ -149,21 +152,45 @@ export const TrackList = () => {
                   <img src={camper.gallery[0].thumb} alt="thumb-image" className={css.cardImg}/>
                   </div>
                   <div className={css.cardContent}>
-                  <h2>{camper.name}</h2>
-              <p>{camper.location}</p>
+                     <div className={css.camperNameContainer}>
+                     <h2 className={css.camperName}>{camper.name}</h2>
+                     <p className={css.camperPrice}>
+                     €{camper.price}.00
+                     </p>
+                     <button className={css.heartBtn}>
+                        <BsSuitHeart className={css.heartIcon}/>
+                     </button>   
+                     </div>
+                     <div className={css.camperSubContainer}>
+                     <p>
+                  <FaStar className={css.ratingIcon}/> 
+                  {camper.rating}({camper.reviews.length} Reviews)
+                     </p>
+                     <p className={css.campertextLocation}> 
+                        <BsMap/> {camper.location}
+                     </p>
+                     </div>
+                  
+                  
+              
               <p className={css.cardDescription}>{camper.description}</p>
-              <p>{camper.transmition}</p>
-              <p>{camper.engine}</p>
-              <p>{camper.AC}AC</p>
-              <p>{camper.kitchen}kitchen</p>
-                  </div>
-               
+
+              <div className={css.featureContainer}>
+              <p className={css.featureItem}><LiaSitemapSolid/> {camper.transmission.charAt(0).toUpperCase() + camper.transmission.slice(1) }</p>
+              <p className={css.featureItem}><FaGasPump/> {camper.engine}</p>
+              <p className={css.featureItem}><BsWind/> {camper.AC}AC</p>
+              <p className={css.featureItem}><BsCupHot/> {camper.kitchen}kitchen</p>
+              </div>
+              <button className={css.showMoreBtn} type="button">Show More</button>  
+              </div> 
+             
               
-              
-                   
+             
+                
             </li>
           ))}
         </ul>
+        
         {hasNextPage &&  <button onClick={handleLoadMore } className={css.loadMoreBtn}>Load More</button>}
         </div>
    </div>

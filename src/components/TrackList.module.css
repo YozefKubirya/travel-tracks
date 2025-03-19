@@ -148,6 +148,7 @@ input[type="radio"]:checked +.equipmentButton{
    font-size: 16px;
    line-height: 24px;
    margin-bottom: 24px;
+   font-weight: 400;
  }
  .cardImgContainer{
    width: 292px;
@@ -164,6 +165,105 @@ input[type="radio"]:checked +.equipmentButton{
    
  }
  .cardContent{
-   width: 524px;
+   width: 534px;
    height: 320px;
  }
+ .camperName{
+   font-size: 24px;
+   line-height: 32px;
+   color: #101828;
+
+ }
+ .camperNameContainer{
+   display: flex;
+   align-items: center;
+   justify-content:space-between;
+   position: relative;
+   margin-bottom: 8px;
+
+ }
+ .camperPrice{
+   font-size: 24px;
+   text-align: center;
+   line-height: 32px;
+   font-weight: 600;
+   color: #101828;
+ }
+ .heartBtn{
+   /* width: 24px;
+   height: 20px; */
+   color: #101828;
+   background-color:transparent;
+   cursor: pointer;
+   outline: none;
+   border: none;
+   padding: 0;
+   /* display: flex;
+   align-items: center;
+   justify-content: center; */
+   position: absolute;
+   right: -43px;
+
+ }
+ .heartIcon{
+   width: 26px;
+   height: 24px;
+ }
+ .camperSubContainer{
+   display: flex;
+   gap:16px;
+   margin-bottom: 24px;
+
+}
+ .ratingIcon{
+   width: 16px;
+   height: 16px;
+   fill: #FFC531;
+   border: none;
+ }
+ .campertextLocation{
+   font-size: 16px;
+   color: #101828;
+ }
+
+ .featureContainer{
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+    margin-bottom: 24px;
+    width: 430px;
+   gap: 8px;
+ }
+ .featureItem{
+   display: flex
+;
+    flex-wrap: nowrap;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    padding: 12px 18px;
+    background-color: #f2f4f7;
+    font-weight: 500;
+    font-size: 16px;
+    color: #101828;
+    height: auto;
+
+ }
+ .showMoreBtn{
+   background-color: #E44848;
+   color: #FFFFFF;
+   font-weight: 500;
+   line-height: 24px;
+   font-size: 16px;
+   padding: 16px 40px;
+   border-radius: 200px;
+   width: 173px;
+   height: 56px;
+   text-align: center;
+   display: block;
+   border: none;
+   outline: none;
+   cursor: pointer;
+ }
+ 
