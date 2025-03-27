@@ -1,22 +1,22 @@
 
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCampers } from "../../src/redux/campers/operations.js";
+import { fetchCampers } from "../../redux/campers/operations.js";
 import { selectCampers,selectCurrentPage, selectHasNextPage, selectItemsPerPage } 
-from "../redux/campers/selectors";
-import { incrementPage } from '../redux/campers/slice'
+from "../../redux/campers/selectors.js";
+import { incrementPage } from '../../redux/campers/slice.js'
 import { Formik, Field, Form } from 'formik';
 import { useId } from "react";
 import css from './TrackList.module.css';
-import { selectFilters, selectForm, selectLocation } from "../redux/filters/selector.js";
-import { setFilters, } from "../redux/filters/slice.js";
-import { formTypeArray } from "../utils/filters/formTypeFilter.js";
-import { BsWind, BsCupHot, BsMap, BsSuitHeart} from "react-icons/bs";
+import { selectFilters, selectForm, selectLocation } from "../../redux/filters/selector.js";
+import { setFilters, } from "../../redux/filters/slice.js";
+import { formTypeArray } from "../../utils/filters/formTypeFilter.js";
+import { BsWind, BsCupHot, BsMap} from "react-icons/bs";
 import { LiaSitemapSolid } from "react-icons/lia";
-import { FaTv, FaStar } from "react-icons/fa";
+import { FaTv, } from "react-icons/fa";
 import { PiShower } from "react-icons/pi";
-
+// import { TrackItem } from "../TrackItem/TrackItem.jsx";
 import { FaGasPump } from "react-icons/fa6";
-
+import { Track} from "../Track/Track.jsx";
 const icons = {
    AC:BsWind,
    automatic:LiaSitemapSolid,
@@ -148,43 +148,9 @@ export const TrackList = () => {
           {campers.map((camper) => (
             <li key={camper.id} className={css.card}>
                 
-                  <div className={css.cardImgContainer}>
-                  <img src={camper.gallery[0].thumb} alt="thumb-image" className={css.cardImg}/>
-                  </div>
-                  <div className={css.cardContent}>
-                     <div className={css.camperNameContainer}>
-                     <h2 className={css.camperName}>{camper.name}</h2>
-                     <p className={css.camperPrice}>
-                     €{camper.price}.00
-                     </p>
-                     <button className={css.heartBtn}>
-                        <BsSuitHeart className={css.heartIcon}/>
-                     </button>   
-                     </div>
-                     <div className={css.camperSubContainer}>
-                     <p>
-                  <FaStar className={css.ratingIcon}/> 
-                  {camper.rating}({camper.reviews.length} Reviews)
-                     </p>
-                     <p className={css.campertextLocation}> 
-                        <BsMap/> {camper.location}
-                     </p>
-                     </div>
-                  
-                  
-              
-              <p className={css.cardDescription}>{camper.description}</p>
-
-              <div className={css.featureContainer}>
-              <p className={css.featureItem}><LiaSitemapSolid/> {camper.transmission.charAt(0).toUpperCase() + camper.transmission.slice(1) }</p>
-              <p className={css.featureItem}><FaGasPump/> {camper.engine}</p>
-              <p className={css.featureItem}><BsWind/> {camper.AC}AC</p>
-              <p className={css.featureItem}><BsCupHot/> {camper.kitchen}kitchen</p>
-              </div>
-              <button className={css.showMoreBtn} type="button">Show More</button>  
-              </div> 
+                   
              
-              
+              <Track id={camper.id} gallery={camper.gallery} name={camper.name} price={camper.price} rating={camper.rating} reviews={camper.reviews} location={camper.location} description={camper.description} transmission={camper.transmission} engine={camper.engine} AC={camper.AC} kitchen={camper.kitchen} />
              
                 
             </li>

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCampers } from "../redux/campers/operations";
 import {   selectItemsPerPage } from "../redux/campers/selectors.js";
 import {resetPage} from '../redux/campers/slice'
-import { TrackList } from "../components/TrackList";
+import { TrackList } from "../components/TrackList/TrackList.jsx";
 import { selectFilters, selectForm, selectLocation } from "../redux/filters/selector.js";
 export const CatalogPage = () => {
    const dispatch = useDispatch();
@@ -28,7 +28,7 @@ export const CatalogPage = () => {
 
    return(
       <>
-      <TrackList/>
+      <TrackList />
 
       </>
    );

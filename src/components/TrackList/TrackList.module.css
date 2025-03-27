@@ -120,7 +120,9 @@ input[type="radio"]:checked +.equipmentButton{
    font-size: 16px;
    line-height: 24px;
    font-weight: 500;
-   letter-spacing: 0.5; 
+   letter-spacing: 0.5;
+   outline: none; 
+   border: none;
 
 
 }
@@ -190,25 +192,30 @@ input[type="radio"]:checked +.equipmentButton{
    color: #101828;
  }
  .heartBtn{
-   /* width: 24px;
-   height: 20px; */
-   color: #101828;
+   
+   
    background-color:transparent;
    cursor: pointer;
    outline: none;
    border: none;
    padding: 0;
-   /* display: flex;
-   align-items: center;
-   justify-content: center; */
+   margin: 0;
    position: absolute;
    right: -43px;
 
  }
+ 
  .heartIcon{
-   width: 26px;
+   color: #101828;
+   width: 24px;
    height: 24px;
  }
+
+ .heartBtn:hover .heartIcon,
+.heartBtn:focus .heartIcon {
+  color: #E44848;
+};
+
  .camperSubContainer{
    display: flex;
    gap:16px;
