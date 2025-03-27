@@ -193,7 +193,8 @@ input[type="radio"]:checked +.equipmentButton{
  }
  .heartBtn{
    
-   
+   width: 24px;
+   height: 24px;
    background-color:transparent;
    cursor: pointer;
    outline: none;
@@ -202,6 +203,7 @@ input[type="radio"]:checked +.equipmentButton{
    margin: 0;
    position: absolute;
    right: -43px;
+   
 
  }
  
@@ -211,11 +213,16 @@ input[type="radio"]:checked +.equipmentButton{
    height: 24px;
  }
 
- .heartBtn:hover .heartIcon,
-.heartBtn:focus .heartIcon {
+ .heartIcon:hover, 
+ .heartIcon:focus
+ {
   color: #E44848;
-};
-
+}
+.heartActiveIcon{
+   width: 24px;
+   height: 24px;
+   color: #E44848;
+}
  .camperSubContainer{
    display: flex;
    gap:16px;

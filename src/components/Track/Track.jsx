@@ -5,12 +5,16 @@ import {  FaStar } from "react-icons/fa";
 
 
 import { FaGasPump } from "react-icons/fa6";
-import { useDispatch} from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import { toggleFavorite } from '../../redux/favorites/slice';
+import { selectFavorites } from '../../redux/favorites/selectors';
 
 export const Track = ({id,gallery,name,price,rating,reviews,location,description,transmission,engine,AC,kitchen}) => {
 
-const dispatch = useDispatch()
+const dispatch = useDispatch();
+const favorites = useSelector(selectFavorites);
+const isFavorite = favorites.includes(id);;
+
 const handleClick = () => {
    dispatch(toggleFavorite(id));
 }
@@ -26,7 +30,8 @@ const handleClick = () => {
                      €{price}.00
                      </p>
                      <button className={css.heartBtn} onClick={handleClick}>
-                        <BsSuitHeart className={css.heartIcon}/>
+                        { isFavorite ? ( <BsSuitHeart className={css.heartActiveIcon} /> ) : (<BsSuitHeart className={css.heartIcon}/>) }
+                        
                      </button>   
                      </div>
                      <div className={css.camperSubContainer}>

@@ -14,7 +14,7 @@ import favoriteReducer from './favorites/slice.js';
 const persistConfig = {
    key: 'favorites',
    storage,
-   whitelist:['favorites']
+   
  };
 
 const persistedReducer = persistReducer(persistConfig, favoriteReducer);

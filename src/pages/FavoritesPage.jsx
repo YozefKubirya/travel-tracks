@@ -11,7 +11,7 @@ export const FavoritesPage = () => {
 
    const filteredFavorites = campers.filter(camper => favoritesCampers.includes(camper.id));
 
-   console.log(favoritesCampers);
+   
    return(
       <>
       <p>Favorites campers</p>
