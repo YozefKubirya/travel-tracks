@@ -53,7 +53,7 @@ const handleClick = () => {
               <p className={css.featureItem}><BsWind/> {AC}AC</p>
               <p className={css.featureItem}><BsCupHot/> {kitchen}kitchen</p>
               </div> 
-               <Link to={`/catalog/${id}`} state={located} target='target_blank'>
+               <Link to={`/catalog/${id}`} state={located} >
                <button className={css.showMoreBtn} type="button">
                Show More
                </button>   
