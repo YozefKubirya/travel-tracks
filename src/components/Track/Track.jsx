@@ -8,7 +8,7 @@ import { FaGasPump } from "react-icons/fa6";
 import { useDispatch, useSelector} from 'react-redux';
 import { toggleFavorite } from '../../redux/favorites/slice';
 import { selectFavorites } from '../../redux/favorites/selectors';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 export const Track = ({id,gallery,name,price,rating,reviews,location,description,transmission,engine,AC,kitchen}) => {
 
 const dispatch = useDispatch();
@@ -53,11 +53,11 @@ const handleClick = () => {
               <p className={css.featureItem}><BsWind/> {AC}AC</p>
               <p className={css.featureItem}><BsCupHot/> {kitchen}kitchen</p>
               </div> 
-               <Link to={`/catalog/${id}`} state={located} >
+               <NavLink to={`/catalog/${id}`} state={located} >
                <button className={css.showMoreBtn} type="button">
                Show More
                </button>   
-               </Link>     
+               </NavLink>     
               </div>
       </>
    )

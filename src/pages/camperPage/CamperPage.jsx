@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { Outlet,useLocation } from "react-router-dom";
 import { BackLink } from "../../components/BackLink/BackLink";
 import { selectItemById } from "../../redux/campers/selectors";
 import { useSelector } from "react-redux";
@@ -8,7 +8,8 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import {  FaStar } from "react-icons/fa";
 import {  BsMap} from "react-icons/bs";
-import css from './CamperPage.module.css'
+import css from './CamperPage.module.css';
+import { NavLink } from "react-router-dom";
 
 export const CamperPage = () => {
   const location = useLocation();
@@ -50,9 +51,11 @@ export const CamperPage = () => {
                <p className={css.camperDescription}>{camper.description}</p>
       </div>
       
-
-      
-      
+      <div>
+         <NavLink to='features'>Features</NavLink>
+         <NavLink to='reviews'>Reviews</NavLink>
+      </div>
+ <Outlet />
       </>
    )
 }
