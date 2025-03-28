@@ -186,7 +186,7 @@ input[type="radio"]:checked +.equipmentButton{
  }
  .camperPrice{
    font-size: 24px;
-   text-align: center;
+   
    line-height: 32px;
    font-weight: 600;
    color: #101828;
@@ -280,4 +280,5 @@ input[type="radio"]:checked +.equipmentButton{
    outline: none;
    cursor: pointer;
  }
+ 
  

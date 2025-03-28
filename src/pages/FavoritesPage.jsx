@@ -10,11 +10,13 @@ export const FavoritesPage = () => {
    const favoritesCampers = useSelector(selectFavorites);
 
    const filteredFavorites = campers.filter(camper => favoritesCampers.includes(camper.id));
+   
 
    
    return(
       <>
-      <p>Favorites campers</p>
+      {filteredFavorites ? <div>
+         <p>Favorites campers</p>
       <ul className={css.cardList}>
          {filteredFavorites.map((camper)=>( 
          <li
@@ -22,6 +24,7 @@ export const FavoritesPage = () => {
             <Track {...camper} />
          </li>))}
       </ul>
+      </div>  : <p>please wait for your favorites...</p>}
       </>
    )
 }

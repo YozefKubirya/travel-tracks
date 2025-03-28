@@ -13,8 +13,7 @@ import favoriteReducer from './favorites/slice.js';
 
 const persistConfig = {
    key: 'favorites',
-   storage,
-   
+   storage,  
  };
 
 const persistedReducer = persistReducer(persistConfig, favoriteReducer);

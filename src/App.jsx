@@ -4,6 +4,7 @@ import { CatalogPage } from "./pages/CatalogPage";
 import { Routes,Route, NavLink } from "react-router-dom";
 import { FavoritesPage } from "./pages/FavoritesPage";
 import { HomePage } from "./pages/HomePage";
+import { CamperPage } from "./pages/camperPage/CamperPage";
 function App() {
   
  
@@ -22,6 +23,7 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage></HomePage>}/>
       <Route path="/catalog" element={<CatalogPage></CatalogPage>} />
+      <Route path="/catalog/:id" element={<CamperPage />} />
       <Route path="/favorites" element={<FavoritesPage></FavoritesPage>}/>
     </Routes>
       

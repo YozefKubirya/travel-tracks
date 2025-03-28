@@ -1,0 +1,41 @@
+.camperSubContainer{
+   display: flex;
+   gap:16px;
+   margin-bottom: 24px;
+
+}
+.ratingIcon{
+   width: 16px;
+   height: 16px;
+   fill: #FFC531;
+   border: none;
+ }
+ .campertextLocation{
+   font-size: 16px;
+   color: #101828;
+ }
+ .camperPrice{
+   font-size: 24px;
+   
+   line-height: 32px;
+   font-weight: 600;
+   color: #101828;
+ }
+.imageList{
+   display: flex;
+   gap: 48px;
+   margin-bottom: 28px;
+}
+.imageCard{
+   /* width: 292px;
+   height: 320px; */
+   border-radius: 10px;
+}
+.camperDescription{
+   color: #475467;
+   font-size: 16px;
+   line-height: 24px;
+   margin-bottom: 60px;
+   font-weight: 400;
+   
+}

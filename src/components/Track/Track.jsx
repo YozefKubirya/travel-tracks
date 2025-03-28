@@ -8,12 +8,13 @@ import { FaGasPump } from "react-icons/fa6";
 import { useDispatch, useSelector} from 'react-redux';
 import { toggleFavorite } from '../../redux/favorites/slice';
 import { selectFavorites } from '../../redux/favorites/selectors';
-
+import { Link, useLocation } from 'react-router-dom';
 export const Track = ({id,gallery,name,price,rating,reviews,location,description,transmission,engine,AC,kitchen}) => {
 
 const dispatch = useDispatch();
 const favorites = useSelector(selectFavorites);
 const isFavorite = favorites.includes(id);;
+const located = useLocation();
 
 const handleClick = () => {
    dispatch(toggleFavorite(id));
@@ -30,8 +31,7 @@ const handleClick = () => {
                      €{price}.00
                      </p>
                      <button className={css.heartBtn} onClick={handleClick}>
-                        { isFavorite ? ( <BsSuitHeart className={css.heartActiveIcon} /> ) : (<BsSuitHeart className={css.heartIcon}/>) }
-                        
+                        { isFavorite ? ( <BsSuitHeart className={css.heartActiveIcon} /> ) : (<BsSuitHeart className={css.heartIcon}/>) }                        
                      </button>   
                      </div>
                      <div className={css.camperSubContainer}>
@@ -47,14 +47,17 @@ const handleClick = () => {
                   
               
               <p className={css.cardDescription}>{description}</p>
-
               <div className={css.featureContainer}>
               <p className={css.featureItem}><LiaSitemapSolid/> {transmission.charAt(0).toUpperCase() + transmission.slice(1) }</p>
               <p className={css.featureItem}><FaGasPump/> {engine}</p>
               <p className={css.featureItem}><BsWind/> {AC}AC</p>
               <p className={css.featureItem}><BsCupHot/> {kitchen}kitchen</p>
-              </div>
-              <button className={css.showMoreBtn} type="button">Show More</button>  
+              </div> 
+               <Link to={`/catalog/${id}`} state={located} target='target_blank'>
+               <button className={css.showMoreBtn} type="button">
+               Show More
+               </button>   
+               </Link>     
               </div>
       </>
    )

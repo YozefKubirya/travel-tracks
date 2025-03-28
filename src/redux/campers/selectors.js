@@ -9,3 +9,5 @@ export const selectHasNextPage = (state) => state.campers.hasNextPage;
 export const selectTotalItems = (state) => state.campers.totalItems;
 
 export const selectTotalPages = (state) => state.campers.totalPages;
+
+export const selectItemById = (state) => state.campers.itemById;

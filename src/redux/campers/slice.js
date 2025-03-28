@@ -19,6 +19,9 @@ const calculateHasNextPage = (state) => {
    name:'campers',
    initialState,
    reducers:{
+      clearSelectedCamper(state) {
+         state.itemById = null;
+       },
       resetPage(state) {
          state.page = 1;
        },
@@ -55,5 +58,5 @@ const calculateHasNextPage = (state) => {
       })
    }
 });
-export const {resetPage, incrementPage } = campersSlice.actions;
+export const {resetPage, incrementPage, clearSelectedCamper } = campersSlice.actions;
 export default campersSlice.reducer;
