@@ -17,6 +17,7 @@ import { PiShower } from "react-icons/pi";
 // import { TrackItem } from "../TrackItem/TrackItem.jsx";
 import { FaGasPump } from "react-icons/fa6";
 import { Track} from "../Track/Track.jsx";
+import { filter } from "../../utils/filter.js";
 const icons = {
    AC:BsWind,
    automatic:LiaSitemapSolid,
@@ -37,8 +38,6 @@ export const TrackList = () => {
    const equipment = useSelector(selectFilters);
    const form = useSelector(selectForm);
    const location = useSelector(selectLocation);
-   
-
    const options = Object.keys(equipment);
    
 
@@ -47,13 +46,13 @@ export const TrackList = () => {
   
   const handleLoadMore = () => {
    dispatch(incrementPage());
-    const filters = {
+    const filters = filter({
       page: page + 1,
       limit,
       equipment,  
       form,
       location  
-    };
+    });
     dispatch(fetchCampers(filters));
    
   };
@@ -61,7 +60,7 @@ export const TrackList = () => {
   if(campers.length === 0 ){
    return <p>No results</p>;
 }
- const selectedEquipment = Object.keys(equipment).filter(key => equipment[key]);
+ const selectedEquipment = options.filter(key => equipment[key]);
    return(
       <>
 <div className={css.truckContainer}>
@@ -74,12 +73,13 @@ export const TrackList = () => {
       const formattedEquipment = {};
     options.forEach((item) => {
       formattedEquipment[item] = values.equipment.includes(item);
+      console.log(formattedEquipment)
     });
 
     
     const filters = {
       ...values,
-      equipment: formattedEquipment 
+      equipment: formattedEquipment, 
     };
       dispatch(setFilters(filters));
       dispatch(fetchCampers({ page: 1, limit, ...filters }));
@@ -150,7 +150,7 @@ export const TrackList = () => {
                 
                    
              
-              <Track id={camper.id} gallery={camper.gallery} name={camper.name} price={camper.price} rating={camper.rating} reviews={camper.reviews} location={camper.location} description={camper.description} transmission={camper.transmission} engine={camper.engine} AC={camper.AC} kitchen={camper.kitchen} />
+              <Track camper={camper} />
              
                 
             </li>

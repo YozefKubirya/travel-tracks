@@ -35,7 +35,7 @@ const calculateHasNextPage = (state) => {
          
        })
       .addCase(fetchCampers.fulfilled,(state,action)=>{
-         // console.log("Fetched campers:", action.payload.items);
+         console.log("Fetched campers:", action.payload.items);
          state.isLoading = false;
          // console.log(action.payload.total)
          if(state.page === 1){

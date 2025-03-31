@@ -31,7 +31,7 @@ const filterSlice = createSlice({
   
 })
 
-export const { setLocation , setForm,toggleFilter} = filterSlice.actions;
+export const { setLocation ,setForm, toggleFilter} = filterSlice.actions;
 
 
 export const setFilters = (filters) => (dispatch) => {

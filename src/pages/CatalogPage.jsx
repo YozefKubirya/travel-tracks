@@ -5,6 +5,7 @@ import {   selectItemsPerPage } from "../redux/campers/selectors.js";
 import {resetPage} from '../redux/campers/slice'
 import { TrackList } from "../components/TrackList/TrackList.jsx";
 import { selectFilters, selectForm, selectLocation } from "../redux/filters/selector.js";
+import { filter } from "../utils/filter.js";
 export const CatalogPage = () => {
    const dispatch = useDispatch();
    const limit = useSelector(selectItemsPerPage)
@@ -14,13 +15,13 @@ export const CatalogPage = () => {
    
    useEffect(() => {
       dispatch(resetPage());
-      const filters = {
+      const filters = filter({
          page: 1,
          limit,
          form,
          location,
          equipment
-       };
+       });
      
       
       dispatch(fetchCampers(filters));
