@@ -21,7 +21,7 @@ export const FavoritesPage = () => {
          {filteredFavorites.map((camper)=>( 
          <li
          key={camper.id} className={css.card}>
-            <Track {...camper} />
+            <Track camper={camper} />
          </li>))}
       </ul>
       </div>  : <p>please wait for your favorites...</p>}

@@ -19,6 +19,7 @@ const located = useLocation();
 const handleClick = () => {
    dispatch(toggleFavorite(camper.id));
 }
+
    return(
       <>
       <div className={css.cardImgContainer}>
