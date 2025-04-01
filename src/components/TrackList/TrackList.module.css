@@ -93,7 +93,7 @@
  }
  .cardContent{
    width: 534px;
-   height: 320px;
+   height: 100%;
  }
  .camperName{
    font-size: 24px;
@@ -165,30 +165,8 @@
    color: #101828;
  }
 
- .featureContainer{
-   display: flex;
-   flex-wrap: wrap;
-   align-items: center;
-    margin-bottom: 24px;
-    width: 430px;
-   gap: 8px;
- }
- .featureItem{
-   display: flex
-;
-    flex-wrap: nowrap;
-    gap: 8px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 100px;
-    padding: 12px 18px;
-    background-color: #f2f4f7;
-    font-weight: 500;
-    font-size: 16px;
-    color: #101828;
-    height: auto;
-
- }
+ 
+ 
  .showMoreBtn{
    background-color: #E44848;
    color: #FFFFFF;

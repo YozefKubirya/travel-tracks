@@ -9,6 +9,7 @@ import { useDispatch, useSelector} from 'react-redux';
 import { toggleFavorite } from '../../redux/favorites/slice';
 import { selectFavorites } from '../../redux/favorites/selectors';
 import { NavLink, useLocation } from 'react-router-dom';
+import { EquipmentList } from '../EquipmentList/EquipmentList';
 export const Track = ({camper}) => {
 
 const dispatch = useDispatch();
@@ -48,12 +49,10 @@ const handleClick = () => {
                   
               
               <p className={css.cardDescription}>{camper.description}</p>
-              <div className={css.featureContainer}>
-              {/* <p className={css.featureItem}><LiaSitemapSolid/> {camper.transmission.charAt(0).toUpperCase() + camper.transmission.slice(1) }</p>
-              <p className={css.featureItem}><FaGasPump/> {camper.engine}</p>
-              <p className={css.featureItem}><BsWind/> {camper.AC}AC</p>
-              <p className={css.featureItem}><BsCupHot/> {camper.kitchen}kitchen</p> */}
-              </div> 
+            
+               <EquipmentList camper={camper}/>
+             
+              
                <NavLink to={`/catalog/${camper.id}`} state={located} >
                <button className={css.showMoreBtn} type="button">
                Show More
@@ -63,3 +62,9 @@ const handleClick = () => {
       </>
    )
 }
+
+
+ {/* <p className={css.featureItem}><LiaSitemapSolid/> {camper.transmission.charAt(0).toUpperCase() + camper.transmission.slice(1) }</p>
+              <p className={css.featureItem}><FaGasPump/> {camper.engine}</p>
+              <p className={css.featureItem}><BsWind/> {camper.AC}AC</p>
+              <p className={css.featureItem}><BsCupHot/> {camper.kitchen}kitchen</p> */}
