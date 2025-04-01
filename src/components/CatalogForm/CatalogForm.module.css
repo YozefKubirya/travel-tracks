@@ -1,0 +1,115 @@
+.filterForm{
+   display: flex;
+   flex-direction:column;
+   align-items: start; 
+   width: 360px;
+}
+.locationInputContainer {
+   position: relative;
+   display: flex;
+   align-items: center;
+   background-color: #F7F7F7;
+   width: 360px; 
+   border-radius: 12px; 
+   border: none;
+   margin-bottom: 40px;
+   outline: none;
+   padding: 16px;
+   
+ }
+.locationInput{
+   width: 100%;
+  border-radius: 12px; 
+  border: none;
+  background: #F7F7F7;
+  outline: none;
+  font-size: 16px;
+  color: #101828;
+   font-size: 18px;
+   font-weight: 400;
+   line-height: 24px;
+}
+.locationInput::placeholder{
+   color:#101828;
+}
+.locationIcon {
+   width: 20px;
+   height: 20px;
+   color: #101828;
+   margin-right: 8px;
+  
+   
+ }
+.formLabels{
+   font-size: 16px;
+   font-weight: 400;
+   line-height: 24px;
+   color: #6C717B;
+}
+.formText{
+   font-size: 16px;
+   font-weight: 400;
+   line-height: 24px;
+   color: #6C717B;
+   margin-bottom: 32px;
+} 
+.equipmentGrid{
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 10px;
+   margin-bottom: 20px;
+   border-top: 3px solid #DADDE1;
+   padding-top: 24px;      
+}
+.equipmentLabel {
+   cursor: pointer;
+}
+.equipmentButton {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   width: 112px;
+   height: 96px;
+   border: 1px solid #d1d5db; 
+   border-radius: 10px;
+   transition: all 0.3s ease-in-out;
+   text-align: center;
+}
+.equipmentButton:hover {
+   border-color: #9e9be1; /* Фіолетовий при наведенні */
+}
+
+input[type="checkbox"]:checked + .equipmentButton {
+   border-color: #E44848; 
+}
+
+input[type="radio"]:checked +.equipmentButton{
+   border-color: #E44848; 
+}
+
+.formTitle{
+   font-size: 20px;
+   font-weight: 600;
+   line-height: 24px;
+   margin-bottom: 24px;
+}
+.searchBtn{
+   width: 166px;
+   height: 56px;
+   padding: 16px 60px 16px 60px;
+   background-color: #E44848;
+   border-radius: 200px;
+   color: #FFFFFF;
+   font-size: 16px;
+   line-height: 24px;
+   font-weight: 500;
+   letter-spacing: 0.5;
+   outline: none; 
+   border: none;
+
+
+}
+.typeBox{
+   display: none;
+}

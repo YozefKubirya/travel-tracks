@@ -33,14 +33,4 @@ const filterSlice = createSlice({
 
 export const { setLocation ,setForm, toggleFilter} = filterSlice.actions;
 
-
-export const setFilters = (filters) => (dispatch) => {
-   dispatch(setLocation(filters.location)); 
-   dispatch(setForm(filters.form)); 
- 
-   Object.keys(filters.equipment).forEach((name) => {
-     dispatch(toggleFilter({ name, checked: filters.equipment[name] })); 
-   });
- };
-
 export default filterSlice.reducer;
