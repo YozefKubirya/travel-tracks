@@ -1,10 +1,6 @@
 import css from '../TrackList/TrackList.module.css';
-import { BsWind, BsCupHot, BsMap, BsSuitHeart} from "react-icons/bs";
-import { LiaSitemapSolid } from "react-icons/lia";
+import {  BsMap, BsSuitHeart} from "react-icons/bs";
 import {  FaStar } from "react-icons/fa";
-
-
-import { FaGasPump } from "react-icons/fa6";
 import { useDispatch, useSelector} from 'react-redux';
 import { toggleFavorite } from '../../redux/favorites/slice';
 import { selectFavorites } from '../../redux/favorites/selectors';

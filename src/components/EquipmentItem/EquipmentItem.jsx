@@ -1,8 +1,6 @@
-export const EquipmentItem = ({text,icon}) => {
+export const EquipmentItem = ({text,icon:Icon}) => {
    return(<>
-   <svg height={20} width={20} >
-        <use href={`${icon}#${icon}`} />
-      </svg>
+      <Icon size={20}  />
       <p>{text}</p>
    </>)
 }
