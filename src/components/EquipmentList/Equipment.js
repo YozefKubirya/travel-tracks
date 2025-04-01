@@ -11,12 +11,19 @@ import { IoWater } from "react-icons/io5";
 import { GiGasStove } from "react-icons/gi";
 import { CgSmartHomeRefrigerator } from "react-icons/cg";
 import { MdOutlineMicrowave } from "react-icons/md";
+import { TbManualGearbox } from "react-icons/tb";
 export const Equipment = (camper) => [
 {
    condition: camper.transmission === "automatic",
    text: "Automatic",
    id: "automatic",
    icon: LiaSitemapSolid,
+},
+{
+  condition: camper.transmission === "manual",
+  text: "Manual",
+  id: "manual",
+  icon:  TbManualGearbox,
 },
 {
    condition: camper.engine === "petrol",
@@ -32,7 +39,7 @@ export const Equipment = (camper) => [
 },
 {
    condition: camper.kitchen ,
-   text: 'kitchen',
+   text: 'Kitchen',
    id: 'kitchen',
    icon: BsCupHot
 },
