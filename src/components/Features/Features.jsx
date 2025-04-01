@@ -2,26 +2,54 @@ import { useSelector } from "react-redux"
 import {  selectItemById } from "../../redux/campers/selectors"
 
 import css from './Feature.module.css'
-
+import { EquipmentList } from "../EquipmentList/EquipmentList.jsx"
 
 
 export const Features = () => {
    const camper = useSelector(selectItemById);
+
+   
    
    if(!camper){
       return <p>Please wait for features....</p>
    }
    return(
       <>
-      <h1>Features</h1>
-      <div>
-         <h2>Vehicle details</h2>        
-         <p>Form {camper.form.charAt(0).toUpperCase() + camper.form.slice(1)}</p>
-         <p>Length {camper.length.charAt(0).toUpperCase() + camper.length.slice(1)}</p>
-         <p>Width {camper.width.charAt(0).toUpperCase() + camper.width.slice(1)}</p>
-         <p>Height {camper.height.charAt(0).toUpperCase() + camper.height.slice(1)}</p>
-         <p>Tank {camper.tank.charAt(0).toUpperCase() + camper.tank.slice(1)}</p>
-         <p>Consumption {camper.consumption.charAt(0).toUpperCase() + camper.consumption.slice(1)}</p>
+      
+      <div className={css.featureContainer}>
+         <div className={css.featureListCont}>
+         <EquipmentList camper={camper}/>
+         </div>
+         
+         <h3 className={css.featureTitle}>Vehicle details</h3>
+         <ul className={css.vehicleList}>
+            <li className={css.vehicleItem}>
+               <span>Form</span>
+               <span>{camper.form ? camper.form.charAt(0).toUpperCase() + camper.form.slice(1) : null}</span>
+            </li>
+            <li className={css.vehicleItem}>
+               <span>Length</span>
+               <span>{camper.length ? camper.length : null}</span>
+            </li>
+            <li className={css.vehicleItem}>
+               <span>Width</span>
+               <span>{camper.width ? camper.width : null}</span>
+            </li>
+            <li className={css.vehicleItem}>
+               <span>Height</span>
+               <span>{camper.height ? camper.height : null}</span>
+            </li>
+            <li className={css.vehicleItem}>
+               <span>Tank</span>
+               <span>{camper.tank ? camper.tank : null}</span>
+            </li>
+            <li className={css.vehicleItem}>
+               <span>Consumption</span>
+               <span>{camper.consumption ? camper.consumption : null}</span>
+            </li>
+        
+         </ul>      
+         
       </div>
       </>
    )

@@ -62,9 +62,3 @@ const handleClick = () => {
       </>
    )
 }
-
-
- {/* <p className={css.featureItem}><LiaSitemapSolid/> {camper.transmission.charAt(0).toUpperCase() + camper.transmission.slice(1) }</p>
-              <p className={css.featureItem}><FaGasPump/> {camper.engine}</p>
-              <p className={css.featureItem}><BsWind/> {camper.AC}AC</p>
-              <p className={css.featureItem}><BsCupHot/> {camper.kitchen}kitchen</p> */}

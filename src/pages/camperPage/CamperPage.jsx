@@ -10,7 +10,10 @@ import {  FaStar } from "react-icons/fa";
 import {  BsMap} from "react-icons/bs";
 import css from './CamperPage.module.css';
 import { NavLink } from "react-router-dom";
-
+import clsx from "clsx";
+const getClass = (props) => {
+   return clsx(css.containerLink, props.isActive && css.active)
+}
 export const CamperPage = () => {
   const location = useLocation();
   const dispatch = useDispatch();
@@ -50,12 +53,14 @@ export const CamperPage = () => {
                </ul>
                <p className={css.camperDescription}>{camper.description}</p>
       </div>
-      
-      <div>
-         <NavLink to='features'>Features</NavLink>
-         <NavLink to='reviews'>Reviews</NavLink>
+   
+      <div className={css.container}>
+         <NavLink to='features' className={getClass}>Features</NavLink>
+         <NavLink to='reviews' className={getClass}>Reviews</NavLink>
       </div>
- <Outlet />
+      <Outlet />
+
       </>
+      
    )
 }
