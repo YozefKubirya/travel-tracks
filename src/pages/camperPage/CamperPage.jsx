@@ -11,6 +11,8 @@ import {  BsMap} from "react-icons/bs";
 import css from './CamperPage.module.css';
 import { NavLink } from "react-router-dom";
 import clsx from "clsx";
+import { BookingForm } from "../../components/BookingForm/BookingForm";
+
 const getClass = (props) => {
    return clsx(css.containerLink, props.isActive && css.active)
 }
@@ -53,13 +55,20 @@ export const CamperPage = () => {
                </ul>
                <p className={css.camperDescription}>{camper.description}</p>
       </div>
-   
+      
       <div className={css.container}>
          <NavLink to='features' className={getClass}>Features</NavLink>
          <NavLink to='reviews' className={getClass}>Reviews</NavLink>
       </div>
+      <div className={css.outLetContainer}>
       <Outlet />
-
+      <BookingForm/> 
+      </div>
+      
+        
+         
+      
+      
       </>
       
    )

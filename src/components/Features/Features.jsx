@@ -1,15 +1,12 @@
 import { useSelector } from "react-redux"
 import {  selectItemById } from "../../redux/campers/selectors"
-
 import css from './Feature.module.css'
 import { EquipmentList } from "../EquipmentList/EquipmentList.jsx"
 
 
-export const Features = () => {
-   const camper = useSelector(selectItemById);
 
-   
-   
+export const Features = () => {
+   const camper = useSelector(selectItemById);  
    if(!camper){
       return <p>Please wait for features....</p>
    }
@@ -49,8 +46,10 @@ export const Features = () => {
             </li>
         
          </ul>      
-         
+       
       </div>
+
+      
       </>
    )
 }

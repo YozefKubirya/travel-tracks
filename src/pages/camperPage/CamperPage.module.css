@@ -39,12 +39,19 @@
    font-weight: 400;
    
 }
+.outLetContainer{
+   display: flex;
+   flex-direction: row;
+   gap: 40px;
+   justify-content: space-between;
+}
 .container{
    margin-bottom: 44px;
    border-bottom: 1px solid #DADDE1;
    display: flex;
-
+   
 }
+
 .containerLink{
    padding-bottom: 24px;
    margin-right: 40px;
