@@ -1,0 +1,46 @@
+.reviewsContainer{
+   width: 631px;
+   height: 100%;
+   gap: 44px;
+   display: flex;
+   flex-direction: column;
+
+}
+.spanContainer{
+   display: flex;
+   gap: 16px;
+   flex-direction: row;
+   align-items: center;
+}
+.ratingContainer{
+   display: flex;
+   flex-direction: column;
+   gap:4px;
+}
+.span{
+   border-radius: 60px;
+   width: 60px;
+   height: 60px;
+   text-align: center;
+   color: #E44848;
+   font-size: 24px;
+   background-color: #F2F4F7;
+   margin: 0;
+   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ratingList{
+   display: flex;
+   flex-direction: row;
+   gap: 4px;
+   align-items: center;
+   justify-content: center;
+}
+.fill {
+   fill: #ffc531;
+ }
+ 
+ .empty {
+   fill: #d1d3d5;
+ }
