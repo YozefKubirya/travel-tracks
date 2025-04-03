@@ -26,3 +26,11 @@ export const filter = ({page, limit, location, equipment, form}) => {
     }
     return filters;
 }
+export const cities = [
+  { id: 1, name: "Ukraine, Kyiv" },
+  { id: 2, name: "Ukraine, Kharkiv" },
+  { id: 3, name: "Ukraine, Lviv" },
+  { id: 4, name: "Ukraine, Odesa" },
+  { id: 5, name: "Ukraine, Poltava" },
+  { id: 6, name: "Ukraine, Sumy" },
+];

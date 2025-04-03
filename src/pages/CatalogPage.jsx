@@ -6,6 +6,7 @@ import {resetPage} from '../redux/campers/slice'
 import { TrackList } from "../components/TrackList/TrackList.jsx";
 import { selectFilters, selectForm, selectLocation } from "../redux/filters/selector.js";
 import { filter } from "../utils/filter.js";
+
 export const CatalogPage = () => {
    const dispatch = useDispatch();
    const limit = useSelector(selectItemsPerPage)
@@ -22,8 +23,7 @@ export const CatalogPage = () => {
          location,
          equipment
        });
-     
-      
+       
       dispatch(fetchCampers(filters));
     }, [dispatch,limit,equipment,form,location ]);
 
