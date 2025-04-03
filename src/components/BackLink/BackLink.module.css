@@ -1,0 +1,12 @@
+.link{
+   outline: none;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 16px;
+   border-radius: 16px;
+   background-color: #E44848;
+   width: 145px;
+   color:#ffff;
+   margin-bottom: 24px;
+}

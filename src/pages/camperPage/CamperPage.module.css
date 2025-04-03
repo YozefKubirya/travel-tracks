@@ -4,6 +4,15 @@
    margin-bottom: 24px;
 
 }
+.camperPageTitle{
+   color: #101828;
+   font-weight: 600;
+   font-size: 24px;
+   line-height: 32px;
+   margin-bottom: 8px;
+
+
+}
 .ratingIcon{
    width: 16px;
    height: 16px;
@@ -20,6 +29,7 @@
    line-height: 32px;
    font-weight: 600;
    color: #101828;
+   margin-bottom: 24px;
  }
 .imageList{
    display: flex;

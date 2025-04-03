@@ -44,3 +44,8 @@
  .empty {
    fill: #d1d3d5;
  }
+
+ .reviewComment{
+   margin-top: 16px;
+   width: 500px;
+ }

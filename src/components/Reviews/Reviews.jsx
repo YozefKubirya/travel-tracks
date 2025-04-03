@@ -27,7 +27,7 @@ export const Reviews = () => {
             </ul>
             </div>
             </div>
-            <p>{review.comment}</p>
+            <p className={css.reviewComment}>{review.comment}</p>
             </li>) : <p>Oupsss, There is no reviews</p>}
             </ul>
             </div>  

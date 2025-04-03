@@ -35,7 +35,7 @@ export const CamperPage = () => {
       <>
       <BackLink to={backLinkHref}>Back to catalog</BackLink>
       <div>
-      <h2>{camper.name}</h2>
+      <h2 className={css.camperPageTitle}>{camper.name}</h2>
       <div className={css.camperSubContainer}>
          <p>
             <FaStar className={css.ratingIcon}/>
