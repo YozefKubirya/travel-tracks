@@ -5,7 +5,7 @@ import { EquipmentList } from "../EquipmentList/EquipmentList.jsx"
 
 
 
-export const Features = () => {
+ const Features = () => {
    const camper = useSelector(selectItemById);  
    if(!camper){
       return <p>Please wait for features....</p>
@@ -53,3 +53,4 @@ export const Features = () => {
       </>
    )
 }
+export default Features;

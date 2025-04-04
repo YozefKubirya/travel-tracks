@@ -1,5 +1,5 @@
 import { Formik, Field, Form } from 'formik';
-import { setForm, setLocation, toggleFilter } from "../../redux/filters/slice.js";
+import { setFilters} from "../../redux/filters/slice.js";
 import { fetchCampers } from "../../redux/campers/operations.js";
 import { useDispatch, useSelector } from "react-redux";
 import { selectItemsPerPage } from "../../redux/campers/selectors.js";
@@ -49,12 +49,7 @@ export const CatalogForm = () => {
           ...values,
           equipment: formattedEquipment,
         };
-
-        dispatch(setLocation(filters.location));
-        dispatch(setForm(filters.form));
-        options.forEach((name) => {
-          dispatch(toggleFilter({ name, checked: filters.equipment[name] }));
-        }); 
+        dispatch(setFilters(filters))
         dispatch(fetchCampers({ page: 1, limit, ...filters }));
         actions.resetForm();
       }}

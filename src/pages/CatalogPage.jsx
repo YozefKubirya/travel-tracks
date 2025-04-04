@@ -7,7 +7,7 @@ import { TrackList } from "../components/TrackList/TrackList.jsx";
 import { selectFilters, selectForm, selectLocation } from "../redux/filters/selector.js";
 import { filter } from "../utils/filter.js";
 
-export const CatalogPage = () => {
+ const CatalogPage = () => {
    const dispatch = useDispatch();
    const limit = useSelector(selectItemsPerPage)
    const equipment = useSelector(selectFilters);
@@ -36,3 +36,4 @@ export const CatalogPage = () => {
       
    
 }
+export default CatalogPage;

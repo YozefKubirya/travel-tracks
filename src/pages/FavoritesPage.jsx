@@ -3,18 +3,22 @@ import { selectFavorites } from "../redux/favorites/selectors";
 import { Track } from "../components/Track/Track";
 import { selectCampers } from "../redux/campers/selectors";
 import css from '../components/TrackList/TrackList.module.css';
-
-export const FavoritesPage = () => {
+import { selectIsLoading } from "../redux/campers/selectors";
+import { Loader } from "../components/Loader/Loader";
+const FavoritesPage = () => {
    const campers = useSelector(selectCampers)
    
    const favoritesCampers = useSelector(selectFavorites);
 
    const filteredFavorites = campers.filter(camper => favoritesCampers.includes(camper.id));
+
+   const isLoading = useSelector(selectIsLoading)
    
 
    
    return(
       <>
+      {isLoading && <Loader/>}
       {filteredFavorites ? <div>
          <p>Favorites campers</p>
       <ul className={css.cardList}>
@@ -28,3 +32,5 @@ export const FavoritesPage = () => {
       </>
    )
 }
+
+export default FavoritesPage;

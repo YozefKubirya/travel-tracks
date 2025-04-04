@@ -12,17 +12,19 @@ import css from './CamperPage.module.css';
 import { NavLink } from "react-router-dom";
 import clsx from "clsx";
 import { BookingForm } from "../../components/BookingForm/BookingForm";
+import { selectIsLoading } from "../../redux/campers/selectors";
+import { Loader } from "../../components/Loader/Loader";
 
 const getClass = (props) => {
    return clsx(css.containerLink, props.isActive && css.active)
 }
-export const CamperPage = () => {
+ const CamperPage = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const {id} = useParams();
   const backLinkHref = location.state ?? "/catalog";
   const camper = useSelector(selectItemById);
- 
+  const isLoading = useSelector(selectIsLoading)
   
   useEffect(()=>{
    dispatch(fetchCamperById(id))
@@ -33,6 +35,7 @@ export const CamperPage = () => {
   
    return (
       <>
+      {isLoading && <Loader/>}
       <BackLink to={backLinkHref}>Back to catalog</BackLink>
       <div>
       <h2 className={css.camperPageTitle}>{camper.name}</h2>
@@ -73,3 +76,5 @@ export const CamperPage = () => {
       
    )
 }
+
+export default CamperPage;

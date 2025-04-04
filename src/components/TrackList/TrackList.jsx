@@ -9,7 +9,8 @@ import { selectFilters, selectForm, selectLocation } from "../../redux/filters/s
 import { Track} from "../Track/Track.jsx";
 import { filter } from "../../utils/filter.js";
 import { CatalogForm } from "../CatalogForm/CatalogForm.jsx";
-
+import { selectIsLoading } from "../../redux/campers/selectors.js";
+import { Loader } from "../Loader/Loader.jsx";
 export const TrackList = () => {
    const dispatch = useDispatch();
    const page = useSelector(selectCurrentPage);
@@ -19,6 +20,7 @@ export const TrackList = () => {
    const equipment = useSelector(selectFilters);
    const form = useSelector(selectForm);
    const location = useSelector(selectLocation);
+   const isLoading = useSelector(selectIsLoading)
   
   const handleLoadMore = () => {
    dispatch(incrementPage());
@@ -50,7 +52,7 @@ export const TrackList = () => {
             </li>
           ))}
         </ul>
-        
+        {isLoading && <Loader />}
         {hasNextPage &&  <button onClick={handleLoadMore } className={css.loadMoreBtn}>Load More</button>}
         </div>
    </div>

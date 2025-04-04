@@ -2,7 +2,7 @@ import { useSelector } from "react-redux"
 import { selectItemById } from "../../redux/campers/selectors";
 import css from './Reviews.module.css'
 import {  FaStar } from "react-icons/fa";
-export const Reviews = () => {
+ const Reviews = () => {
    const camper = useSelector(selectItemById);
    const reviewsList = camper.reviews;
    
@@ -34,3 +34,5 @@ export const Reviews = () => {
       </>
    )
 }
+ export default Reviews;
+ 

@@ -47,14 +47,25 @@ const calculateHasNextPage = (state) => {
          state.totalItems = action.payload.total;
          calculateHasNextPage(state);   
       })
+      .addCase(fetchCampers.rejected,(state,action)=>{
+         state.isLoading = false;
+         state.isError = action.payload;
+         state.items = [];
+         state.totalItems = 0;
+      })
       .addCase(fetchCamperById.pending, (state) => {
          state.isLoading = true;
          
-       })
+       }) 
       .addCase(fetchCamperById.fulfilled, (state,action)=>{
          state.isLoading = false;
          console.log(action.payload);
          state.itemById = action.payload;
+      })
+      .addCase(fetchCamperById.rejected,(state,action)=>{
+         state.isLoading = false;
+         state.isError = action.payload;
+         state.itemById = null;
       })
    }
 });
