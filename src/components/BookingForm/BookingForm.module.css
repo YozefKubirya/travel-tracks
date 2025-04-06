@@ -23,29 +23,41 @@
    border: none;
    box-sizing: border-box;
 }
-
+.input::placeholder{
+   font-size: 16px;
+   line-height: 24px;
+   font-weight: 400;
+}
 textarea.input{ 
    height: 118px;
    margin-bottom: 24px;
-   
+   font-size: 16px;
+   line-height: 24px;
+   font-weight: 400;
 }
 .sendButton{
-   padding: 16px 60px;
+   width: 166px;
+   height: 60px;
    border: none;
    outline: none;
    background-color: #E44848;
    color:#ffffff;
-   width: 40px;
    display: flex;
    align-items: center;
    justify-content: center;
    border-radius: 200px;
    cursor: pointer;
+   transition: 500ms;
+   font-size: 16px;
+   line-height: 24px;
+   font-weight: 500;
 }
 .booKingForm .sendButton{
    margin: 0 auto;
 }
-
+.sendButton:hover{
+   background-color: #c03535;
+}
 .title{
    font-weight: 600;
    font-size: 20px;
@@ -61,4 +73,11 @@ textarea.input{
    
    padding: 0;
    color:#6C717B;
+}
+.span{
+   color: #c03535;
+   padding: 5px;
+   border: 2px solid #c03535;
+   border-radius: 4px;
+   background-color: rgb(249, 246, 244);
 }

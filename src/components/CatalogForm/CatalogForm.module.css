@@ -108,8 +108,11 @@ input[type="radio"]:checked +.equipmentButton{
    letter-spacing: 0.5;
    outline: none; 
    border: none;
-
-
+   transition: 500ms;
+   cursor: pointer;
+}
+.searchBtn:hover, .searchBtn:focus{
+   background-color: #c03535;
 }
 .typeBox{
    display: none;

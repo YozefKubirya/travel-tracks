@@ -9,4 +9,8 @@
    width: 145px;
    color:#ffff;
    margin-bottom: 24px;
+   transition: 500ms;
+}
+.link:hover, .link:focus{
+   background-color: #c03535;
 }
