@@ -3,7 +3,7 @@ import "./App.css";
 import { Routes, Route, NavLink } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { Loader } from "./components/Loader/Loader";
-
+import Navigation from "./components/Navigation/Navigation.jsx";
 // Lazy-loaded pages
 const HomePage = lazy(() => import("./pages/HomePage.jsx"));
 const CatalogPage = lazy(() => import("./pages/CatalogPage.jsx"));
@@ -18,11 +18,7 @@ function App() {
   return (
     <Suspense fallback={<Loader />}>
       <div>
-        <nav>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/catalog">Catalog</NavLink>
-          <NavLink to="/favorites">Favorites</NavLink>
-        </nav>
+      <Navigation/> 
 
         <Routes>
           <Route path="/" element={<HomePage />} />
