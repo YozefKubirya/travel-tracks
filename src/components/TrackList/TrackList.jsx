@@ -8,7 +8,7 @@ import css from './TrackList.module.css';
 import { selectFilters, selectForm, selectLocation } from "../../redux/filters/selector.js";
 import { Track} from "../Track/Track.jsx";
 import { filter } from "../../utils/filter.js";
-import { CatalogForm } from "../CatalogForm/CatalogForm.jsx";
+
 import { selectIsLoading } from "../../redux/campers/selectors.js";
 import { Loader } from "../Loader/Loader.jsx";
 export const TrackList = () => {
@@ -41,10 +41,8 @@ export const TrackList = () => {
  
    return(
       <>
-<div className={css.truckContainer}>
    
-   <CatalogForm/>
-   <div>
+   
    <ul className={css.cardList}>
           {campers.map((camper) => (
             <li key={camper.id} className={css.card}>
@@ -54,8 +52,8 @@ export const TrackList = () => {
         </ul>
         {isLoading && <Loader />}
         {hasNextPage &&  <button onClick={handleLoadMore } className={css.loadMoreBtn}>Load More</button>}
-        </div>
-   </div>
+       
+
       </>
    )
 }

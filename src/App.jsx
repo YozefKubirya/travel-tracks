@@ -1,12 +1,12 @@
 
 import "./App.css";
-import { Routes, Route, NavLink } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { Loader } from "./components/Loader/Loader";
 import Navigation from "./components/Navigation/Navigation.jsx";
 // Lazy-loaded pages
 const HomePage = lazy(() => import("./pages/HomePage.jsx"));
-const CatalogPage = lazy(() => import("./pages/CatalogPage.jsx"));
+const CatalogPage = lazy(() => import("./pages/CatalogPage/CatalogPage.jsx"));
 const CamperPage = lazy(() => import("./pages/camperPage/CamperPage.jsx"));
 const FavoritesPage = lazy(() => import("./pages/FavoritesPage.jsx"));
 

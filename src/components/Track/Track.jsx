@@ -25,12 +25,15 @@ const handleClick = () => {
                   <div className={css.cardContent}>
                      <div className={css.camperNameContainer}>
                      <h2 className={css.camperName}>{camper.name}</h2>
+                     <div className={css.priceContainer}>
                      <p className={css.camperPrice}>
                      €{camper.price}.00
                      </p>
                      <button className={css.heartBtn} onClick={handleClick}>
                         { isFavorite ? ( <BsSuitHeart className={css.heartActiveIcon} /> ) : (<BsSuitHeart className={css.heartIcon}/>) }                        
-                     </button>   
+                     </button>
+                     </div>
+                       
                      </div>
                      <div className={css.camperSubContainer}>
                      <p>

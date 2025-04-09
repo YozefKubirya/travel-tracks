@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCampers } from "../redux/campers/operations";
-import {   selectItemsPerPage } from "../redux/campers/selectors.js";
-import {resetPage} from '../redux/campers/slice'
-import { TrackList } from "../components/TrackList/TrackList.jsx";
-import { selectFilters, selectForm, selectLocation } from "../redux/filters/selector.js";
-import { filter } from "../utils/filter.js";
-
+import { fetchCampers } from "../../redux/campers/operations.js";
+import {   selectItemsPerPage } from "../../redux/campers/selectors.js";
+import {resetPage} from '../../redux/campers/slice.js'
+import { TrackList } from "../../components/TrackList/TrackList.jsx";
+import { selectFilters, selectForm, selectLocation } from "../../redux/filters/selector.js";
+import { CatalogForm } from "../../components/CatalogForm/CatalogForm.jsx";
+import { filter } from "../../utils/filter.js";
+import css from './CatalogPage.module.css'
  const CatalogPage = () => {
    const dispatch = useDispatch();
    const limit = useSelector(selectItemsPerPage)
@@ -29,7 +30,13 @@ import { filter } from "../utils/filter.js";
 
    return(
       <>
+      <div className={css.mainWraper}>
+      <div className={css.container}>
+      <CatalogForm/>
       <TrackList />
+      </div>
+      </div>
+      
 
       </>
    );
