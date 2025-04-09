@@ -1,3 +1,9 @@
+.mainWraper{
+   max-width: 1440px;
+   margin: 0 auto;
+   padding: 48px 50px;
+   
+}
 .camperSubContainer{
    display: flex;
    gap:16px;

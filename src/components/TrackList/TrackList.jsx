@@ -42,18 +42,20 @@ export const TrackList = () => {
    return(
       <>
    
-   
-   <ul className={css.cardList}>
+  <div className={css.listContainer}>
+  <ul className={css.cardList}>
           {campers.map((camper) => (
             <li key={camper.id} className={css.card}>
               <Track camper={camper} />    
             </li>
           ))}
-        </ul>
-        {isLoading && <Loader />}
-        {hasNextPage &&  <button onClick={handleLoadMore } className={css.loadMoreBtn}>Load More</button>}
-       
-
+          </ul>
+        
+          {isLoading && <Loader />}
+          {hasNextPage &&  <button onClick={handleLoadMore } className={css.loadMoreBtn}>Load More</button>}
+  </div>
+   
+          
       </>
    )
 }

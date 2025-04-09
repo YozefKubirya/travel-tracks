@@ -35,9 +35,10 @@ const getClass = (props) => {
   
    return (
       <>
+      
+      <div className={css.mainWraper}>
       {isLoading && <Loader/>}
       <BackLink to={backLinkHref}>Back to catalog</BackLink>
-      <div>
       <h2 className={css.camperPageTitle}>{camper.name}</h2>
       <div className={css.camperSubContainer}>
          <p>
@@ -57,7 +58,7 @@ const getClass = (props) => {
                   }
                </ul>
                <p className={css.camperDescription}>{camper.description}</p>
-      </div>
+     
       
       <div className={css.container}>
          <NavLink to='features' className={getClass}>Features</NavLink>
@@ -67,7 +68,7 @@ const getClass = (props) => {
       <Outlet />
       <BookingForm/> 
       </div>
-      
+      </div>   
         
          
       
