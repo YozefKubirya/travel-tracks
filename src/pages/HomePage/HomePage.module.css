@@ -1,0 +1,42 @@
+.hero{
+   display: flex;
+   height: 90vh;
+   background-image: url('../../pictures/Picture.jpg');
+   background-size: cover;
+   background-repeat: no-repeat;
+
+}
+.homeContainer{
+  padding-left: 64px;
+  align-self: center;
+}
+.heroTitle{
+   font-weight: 600;
+   font-size: 48px;
+   line-height: 32px;
+   color: #F7F7F7;
+   margin-bottom: 16px;
+}
+.heroText{
+   font-weight: 600;
+   font-size: 24px;
+   line-height: 32px;
+   color: #F7F7F7;
+   margin-bottom:40px;
+}
+.heroBtn{
+   padding: 16px 64px;
+   background-color: #E44848;
+   border-radius: 200px;
+   outline: none;
+   border: none;
+   color:#FFFFFF;
+   font-size: 16px;
+   font-weight: 500;
+   line-height: 24px;
+   transition: 500ms;
+   cursor: pointer;
+}
+.heroBtn:hover{
+   background-color: #c03535;
+}

@@ -5,10 +5,10 @@ import { lazy, Suspense } from "react";
 import { Loader } from "./components/Loader/Loader";
 import Navigation from "./components/Navigation/Navigation.jsx";
 // Lazy-loaded pages
-const HomePage = lazy(() => import("./pages/HomePage.jsx"));
+const HomePage = lazy(() => import("./pages/HomePage/HomePage.jsx"));
 const CatalogPage = lazy(() => import("./pages/CatalogPage/CatalogPage.jsx"));
 const CamperPage = lazy(() => import("./pages/camperPage/CamperPage.jsx"));
-const FavoritesPage = lazy(() => import("./pages/FavoritesPage.jsx"));
+const FavoritesPage = lazy(() => import("./pages/FavoritesPage/FavoritesPage.jsx"));
 
 // Lazy-loaded nested components
 const Features = lazy(() => import("./components/Features/Features.jsx"));

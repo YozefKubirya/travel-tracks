@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
-import { selectFavorites } from "../redux/favorites/selectors";
-import { Track } from "../components/Track/Track";
-import { selectCampers } from "../redux/campers/selectors";
-import css from '../components/TrackList/TrackList.module.css';
-import { selectIsLoading } from "../redux/campers/selectors";
-import { Loader } from "../components/Loader/Loader";
+import { selectFavorites } from "../../redux/favorites/selectors";
+import { Track } from "../../components/Track/Track";
+import { selectCampers } from "../../redux/campers/selectors";
+import css from '../../components/TrackList/TrackList.module.css';
+import { selectIsLoading } from "../../redux/campers/selectors";
+import { Loader } from "../../components/Loader/Loader";
 const FavoritesPage = () => {
    const campers = useSelector(selectCampers)
    
