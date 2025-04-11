@@ -10,6 +10,7 @@
    z-index: 1000;
    background-color: #F2F4F7;
 }
-.loader{   
-   color: red;
+.loader{ 
+   color: #E44848;   
+   border-color: #E44848;
 }
