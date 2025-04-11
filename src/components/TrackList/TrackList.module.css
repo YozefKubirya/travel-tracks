@@ -207,3 +207,11 @@
  .showMoreBtn:hover, .showMoreBtn:focus{
   background-color: #c03535;
  }
+ .oppsText{
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 32px;
+  color: #E44848;
+  text-align: center;
+  margin: 0 auto;
+ }

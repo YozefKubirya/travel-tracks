@@ -1,9 +1,9 @@
 import { Formik, Field, Form } from 'formik';
-import { setFilters} from "../../redux/filters/slice.js";
+import { setForm, setLocation,toggleFilter} from "../../redux/filters/slice.js";
 import { fetchCampers } from "../../redux/campers/operations.js";
 import { useDispatch, useSelector } from "react-redux";
 import { selectItemsPerPage } from "../../redux/campers/selectors.js";
-import { selectFilters } from "../../redux/filters/selector.js";
+import { selectFilters, selectForm, selectLocation } from "../../redux/filters/selector.js";
 import { useId, useState } from "react";
 import { formTypeArray } from "../../utils/filters/formTypeFilter.js";
 import { BsWind, BsCupHot, BsMap } from "react-icons/bs";
@@ -29,30 +29,36 @@ export const CatalogForm = () => {
   const nameId = useId();
   const equipment = useSelector(selectFilters);
   const options = Object.keys(equipment);
+  const location = useSelector(selectLocation);
+  const form = useSelector(selectForm)
   const selectedEquipment = options.filter(key => equipment[key]);
   const [isDropDownOpen, setIsDropDown] = useState(false);
-
+  const handleSubmit = (values, actions) => {
+    const formattedEquipment = {};
+    options.forEach((item) => {
+      formattedEquipment[item] = values.equipment.includes(item);
+    });
+    const filters = {
+      ...values,
+      equipment: formattedEquipment,
+    };
+    dispatch(setLocation(filters.location));
+    Object.entries(filters.equipment).forEach(([name, checked]) => {
+      dispatch(toggleFilter({ name, checked }));
+    })
+    dispatch(setForm(filters.form));
+    dispatch(fetchCampers({page:1,limit,...filters}))
+    console.log(filters);   
+    actions.resetForm();
+  }
   return (
     <Formik
       initialValues={{
-        location: '',
+        location,
         equipment: selectedEquipment,
-        form: ''
+        form
       }}
-      onSubmit={(values, actions) => {
-        const formattedEquipment = {};
-        options.forEach((item) => {
-          formattedEquipment[item] = values.equipment.includes(item);
-        });
-
-        const filters = {
-          ...values,
-          equipment: formattedEquipment,
-        };
-        dispatch(setFilters(filters))
-        dispatch(fetchCampers({ page: 1, limit, ...filters }));
-        actions.resetForm();
-      }}
+      onSubmit={handleSubmit}
     >
       {({ values, setFieldValue }) => {
         const filteredLocations = cities

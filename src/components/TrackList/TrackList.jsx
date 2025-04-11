@@ -36,9 +36,8 @@ export const TrackList = () => {
   };
 
   if(campers.length === 0 ){
-   return <p>No results</p>;
-}
- 
+   return <p className={css.oppsText}>Opps , something went wrong, please reload your page</p>;
+} 
    return(
       <>
    

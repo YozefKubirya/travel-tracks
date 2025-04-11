@@ -15,7 +15,7 @@ import css from './CatalogPage.module.css'
    const form = useSelector(selectForm);
    const location = useSelector(selectLocation);
    
-   useEffect(() => {
+   useEffect(() => {    
       dispatch(resetPage());
       const filters = filter({
          page: 1,
@@ -26,7 +26,7 @@ import css from './CatalogPage.module.css'
        });
        
       dispatch(fetchCampers(filters));
-    }, [dispatch,limit,equipment,form,location ]);
+    }, [dispatch,limit,equipment,form,location,]);
 
    return(
       <>
