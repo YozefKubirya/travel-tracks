@@ -2,9 +2,10 @@ import { useSelector } from "react-redux";
 import { selectFavorites } from "../../redux/favorites/selectors";
 import { Track } from "../../components/Track/Track";
 import { selectCampers } from "../../redux/campers/selectors";
-import css from '../../components/TrackList/TrackList.module.css';
+
 import { selectIsLoading } from "../../redux/campers/selectors";
 import { Loader } from "../../components/Loader/Loader";
+import css from './FavoritesPage.module.css'
 const FavoritesPage = () => {
    const campers = useSelector(selectCampers)
    
@@ -18,9 +19,10 @@ const FavoritesPage = () => {
    
    return(
       <>
+      <section className={css.favoritesSection}>
       {isLoading && <Loader/>}
       {filteredFavorites ? <div>
-         <p>Favorites campers</p>
+         <h2 className={css.favoritesTitle}>Favorites Campers</h2>
       <ul className={css.cardList}>
          {filteredFavorites.map((camper)=>( 
          <li
@@ -29,6 +31,8 @@ const FavoritesPage = () => {
          </li>))}
       </ul>
       </div>  : <p>please wait for your favorites...</p>}
+      </section>
+      
       </>
    )
 }
