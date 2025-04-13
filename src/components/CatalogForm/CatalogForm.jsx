@@ -39,8 +39,8 @@ export const CatalogForm = () => {
       formattedEquipment[item] = values.equipment.includes(item);
     });
     const filters = {
-      ...values,
-      equipment: formattedEquipment,
+    ...values,
+    equipment: formattedEquipment,
     };
     dispatch(setLocation(filters.location));
     Object.entries(filters.equipment).forEach(([name, checked]) => {
