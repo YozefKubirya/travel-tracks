@@ -1,5 +1,5 @@
 import { Formik, Field, Form } from 'formik';
-import { setForm, setLocation,toggleFilter} from "../../redux/filters/slice.js";
+import { setForm, setLocation, toggleFilter } from "../../redux/filters/slice.js";
 import { fetchCampers } from "../../redux/campers/operations.js";
 import { useDispatch, useSelector } from "react-redux";
 import { selectItemsPerPage } from "../../redux/campers/selectors.js";
@@ -25,50 +25,48 @@ const icons = {
 
 export const CatalogForm = () => {
   const dispatch = useDispatch();
-
   const limit = useSelector(selectItemsPerPage);
-
   const nameId = useId();
-
   const equipment = useSelector(selectFilters);
-
-  
-
   const location = useSelector(selectLocation);
-
   const form = useSelector(selectForm);
-
   const options = Object.keys(equipment);
-
+  
   const selectedEquipment = options.filter(key => equipment[key]);
 
   const [isDropDownOpen, setIsDropDown] = useState(false);
 
-  const handleSubmit = (values ) => {
+  const handleSubmit = (values) => {
+  
     const formattedEquipment = {};
     options.forEach((item) => {
       formattedEquipment[item] = values.equipment.includes(item);
     });
+
     const filters = {
-    ...values,
-    equipment: formattedEquipment,
+      ...values,
+      equipment: formattedEquipment,
     };
+
+    console.log('Submitting filters:', filters);
     dispatch(setLocation(filters.location));
-    Object.entries(filters.equipment).forEach(([name, checked]) => {
-      dispatch(toggleFilter({ name, checked }));
-    })
     dispatch(setForm(filters.form));
-    // dispatch(fetchCampers({page:1,limit,...filters}))
-    console.log(filters);   
     
-  }
+    
+   
+      dispatch(toggleFilter(filters.equipment));
+   
+
+   
+    dispatch(fetchCampers({ page: 1, limit, ...filters }));
+  };
 
   return (
     <Formik
       initialValues={{
         location,
         equipment: selectedEquipment,
-        form
+        form,
       }}
       onSubmit={handleSubmit}
     >
@@ -122,11 +120,7 @@ export const CatalogForm = () => {
                 {options.map((item) => {
                   const Icon = icons[item];
                   return (
-                    <label
-                      key={item}
-                      htmlFor={`${nameId}-${item}`}
-                      className={css.equipmentLabel}
-                    >
+                    <label key={item} htmlFor={`${nameId}-${item}`} className={css.equipmentLabel}>
                       <Field
                         type='checkbox'
                         name='equipment'
@@ -148,11 +142,7 @@ export const CatalogForm = () => {
                 {formTypeArray.map(({ name, label, icon }) => {
                   const Icon = icon;
                   return (
-                    <label
-                      key={name}
-                      htmlFor={`${nameId}-${name}`}
-                      className={css.equipmentLabel}
-                    >
+                    <label key={name} htmlFor={`${nameId}-${name}`} className={css.equipmentLabel}>
                       <Field
                         type='radio'
                         name='form'
