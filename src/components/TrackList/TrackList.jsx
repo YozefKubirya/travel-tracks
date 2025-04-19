@@ -11,6 +11,9 @@ import { filter } from "../../utils/filter.js";
 
 import { selectIsLoading } from "../../redux/campers/selectors.js";
 import { Loader } from "../Loader/Loader.jsx";
+import { resetPage } from "../../redux/campers/slice.js";
+import { useEffect } from "react";
+import { selectUserFilters } from "../../redux/filters/selector.js";
 export const TrackList = () => {
    const dispatch = useDispatch();
    const page = useSelector(selectCurrentPage);
@@ -20,20 +23,36 @@ export const TrackList = () => {
    const equipment = useSelector(selectFilters);
    const form = useSelector(selectForm);
    const location = useSelector(selectLocation);
-   const isLoading = useSelector(selectIsLoading)
+   const isLoading = useSelector(selectIsLoading);
+   useEffect(() => {    
+    dispatch(resetPage());
   
-  const handleLoadMore = () => {
-   dispatch(incrementPage());
-    const filters = filter({
-      page: page + 1,
+    const filters = {
+       page: 1, 
+       limit,       
+       form,
+       location,
+       equipment 
+    };
+     
+    dispatch(fetchCampers(filters)); 
+ }, [dispatch, limit,form,location, equipment,]);
+
+ const handleLoadMore = () => {
+    const nextPage = page + 1;  
+    dispatch(incrementPage());
+
+    const filters = {
+      page: nextPage,
       limit,
-      equipment,  
       form,
-      location  
-    });
+      location,
+      equipment
+   } 
+
     dispatch(fetchCampers(filters));
-   
-  };
+ };
+  
 
   if(campers.length === 0 ){
    return <p className={css.oppsText}>Opps , something went wrong, please reload your page</p>;
@@ -58,3 +77,4 @@ export const TrackList = () => {
       </>
    )
 }
+ 

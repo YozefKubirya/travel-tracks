@@ -12,6 +12,9 @@ export const filter = ({page, limit, location, equipment, form}) => {
     if (equipment.automatic) {
       filters.transmission = "automatic";
     }
+    if (equipment.manual) {
+      filters.transmission = 'manual'
+    }
     if (equipment.kitchen) {
       filters.kitchen = equipment.kitchen;
     }

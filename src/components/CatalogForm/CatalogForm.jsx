@@ -25,15 +25,26 @@ const icons = {
 
 export const CatalogForm = () => {
   const dispatch = useDispatch();
+
   const limit = useSelector(selectItemsPerPage);
+
   const nameId = useId();
+
   const equipment = useSelector(selectFilters);
-  const options = Object.keys(equipment);
+
+  
+
   const location = useSelector(selectLocation);
-  const form = useSelector(selectForm)
+
+  const form = useSelector(selectForm);
+
+  const options = Object.keys(equipment);
+
   const selectedEquipment = options.filter(key => equipment[key]);
+
   const [isDropDownOpen, setIsDropDown] = useState(false);
-  const handleSubmit = (values, actions) => {
+
+  const handleSubmit = (values ) => {
     const formattedEquipment = {};
     options.forEach((item) => {
       formattedEquipment[item] = values.equipment.includes(item);
@@ -47,10 +58,11 @@ export const CatalogForm = () => {
       dispatch(toggleFilter({ name, checked }));
     })
     dispatch(setForm(filters.form));
-    dispatch(fetchCampers({page:1,limit,...filters}))
+    // dispatch(fetchCampers({page:1,limit,...filters}))
     console.log(filters);   
-    actions.resetForm();
+    
   }
+
   return (
     <Formik
       initialValues={{
