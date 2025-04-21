@@ -25,7 +25,7 @@ export const TrackList = () => {
    const location = useSelector(selectLocation);
    const isLoading = useSelector(selectIsLoading);
    useEffect(() => {    
-   //  dispatch(resetPage());
+    dispatch(resetPage());
   
     const filters = {
        page: 1, 
