@@ -27,7 +27,7 @@ export const TrackList = () => {
    useEffect(() => {    
     dispatch(resetPage());
   
-    const filters = {
+    const filters ={
        page: 1, 
        limit,       
        form,

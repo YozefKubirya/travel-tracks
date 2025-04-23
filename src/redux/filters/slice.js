@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 const initialState = {
    equipment:{
       AC:false,
@@ -31,3 +32,6 @@ const initialState = {
 
 
 export default filterSlice.reducer;
+
+
+

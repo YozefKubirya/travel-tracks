@@ -30,42 +30,36 @@ export const CatalogForm = () => {
   const equipment = useSelector(selectFilters);
   const location = useSelector(selectLocation);
   const form = useSelector(selectForm);
-  const options = Object.keys(equipment);
+  const options = Object.keys(equipment)
   
-  const selectedEquipment = options.filter(key => equipment[key]);
-
+  
   const [isDropDownOpen, setIsDropDown] = useState(false);
 
   const handleSubmit = (values) => {
   
-    const formattedEquipment = {};
-    options.forEach((item) => {
-      formattedEquipment[item] = values.equipment.includes(item);
-    });
+   const selectedEquipment = options.reduce((acc,item) => {
+      acc[item] = values.equipment.includes(item);
+      return acc;
+    }
+  ,{}) 
 
     const filters = {
       ...values,
-      equipment: formattedEquipment,
+      equipment: selectedEquipment,
     };
 
     console.log('Submitting filters:', filters);
     dispatch(setLocation(filters.location));
     dispatch(setForm(filters.form));
-    
-    
-   
-      dispatch(toggleFilter(filters.equipment));
-   
-
-   
-    dispatch(fetchCampers({ page: 1, limit, ...filters }));
+    dispatch(toggleFilter(filters.equipment));
+    // dispatch(fetchCampers({ page: 1, limit, ...filters }));
   };
 
   return (
     <Formik
       initialValues={{
         location,
-        equipment: selectedEquipment,
+        equipment:[],
         form,
       }}
       onSubmit={handleSubmit}
