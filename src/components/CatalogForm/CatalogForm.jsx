@@ -12,6 +12,7 @@ import { FaTv } from "react-icons/fa";
 import { PiShower } from "react-icons/pi";
 import { FaGasPump } from "react-icons/fa6";
 import { cities } from '../../utils/filter.js';
+
 import css from './CatalogForm.module.css';
 
 const icons = {
@@ -31,35 +32,39 @@ export const CatalogForm = () => {
   const location = useSelector(selectLocation);
   const form = useSelector(selectForm);
   const options = Object.keys(equipment)
-  
+  const selectedEquipment = options.filter(key => equipment[key]);
   
   const [isDropDownOpen, setIsDropDown] = useState(false);
 
   const handleSubmit = (values) => {
-  
-   const selectedEquipment = options.reduce((acc,item) => {
-      acc[item] = values.equipment.includes(item);
-      return acc;
-    }
-  ,{}) 
+    const formattedEquipment = {};
+    options.forEach((item) => {
+      formattedEquipment[item] = values.equipment.includes(item);
+    });
+   
+    
 
     const filters = {
       ...values,
-      equipment: selectedEquipment,
+      equipment: formattedEquipment,
     };
 
     console.log('Submitting filters:', filters);
     dispatch(setLocation(filters.location));
+  
+    Object.entries(filters.equipment).forEach(([name, checked]) => {
+      dispatch(toggleFilter({name, checked}));
+    })
     dispatch(setForm(filters.form));
-    dispatch(toggleFilter(filters.equipment));
-    // dispatch(fetchCampers({ page: 1, limit, ...filters }));
+   
+    dispatch(fetchCampers({ page: 1, limit, ...filters }));
   };
 
   return (
     <Formik
       initialValues={{
         location,
-        equipment:[],
+        equipment: selectedEquipment,
         form,
       }}
       onSubmit={handleSubmit}
@@ -163,3 +168,11 @@ export const CatalogForm = () => {
     </Formik>
   );
 };
+
+
+ // const selectedEquipment = options.reduce((acc,item) => {
+    //   acc[item] = values.equipment.includes(item);
+    //   return acc;
+    // }, {}) 
+
+      // dispatch(toggleFilter(filters.equipment));

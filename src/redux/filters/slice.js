@@ -17,7 +17,9 @@ const initialState = {
       initialState,
       reducers: {
         toggleFilter(state, action) {
-         state.equipment = action.payload; 
+        //  state.equipment = action.payload; 
+        const {name, checked} = action.payload;
+        state.equipment[name] = checked;
         },
         setLocation(state, action) {
           state.location = action.payload;
