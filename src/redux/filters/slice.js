@@ -2,13 +2,15 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = {
-   equipment:{
-      AC:false,
+   
+     equipment:
+     { AC:false,
       automatic:false,
       kitchen:false,
       TV:false,
       bathroom:false,
-   },
+    },
+   
    location:'',
    form:''}
 
@@ -17,7 +19,6 @@ const initialState = {
       initialState,
       reducers: {
         toggleFilter(state, action) {
-        //  state.equipment = action.payload; 
         const {name, checked} = action.payload;
         state.equipment[name] = checked;
         },
@@ -27,10 +28,15 @@ const initialState = {
         setForm(state, action) {
           state.form = action.payload;
         },
+        resetFilters(state) {
+          state.equipment = initialState.equipment;
+          state.location = '';
+          state.form = '';
+        },
       },
     });
     
-    export const { setLocation, setForm, toggleFilter } = filterSlice.actions;
+    export const { setLocation, setForm, toggleFilter , resetFilters} = filterSlice.actions;
 
 
 export default filterSlice.reducer;

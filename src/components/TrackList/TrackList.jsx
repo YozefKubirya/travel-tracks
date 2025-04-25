@@ -19,6 +19,7 @@ export const TrackList = () => {
    const campers = useSelector(selectCampers);
    const isLoading = useSelector(selectIsLoading);
    const filtersAll = useSelector(selectUserFilters);
+   
    useEffect(() => {
   dispatch(resetPage());
 }, [dispatch, filtersAll]);
@@ -36,22 +37,12 @@ export const TrackList = () => {
  }, [dispatch, limit, filtersAll, page]);
    
  const handleLoadMore = () => {
-   // const nextPage = page + 1;
-   // const filters = {
-   //    page: nextPage,
-   //    limit,
-   //    ...filtersAll
-   // }
-   // dispatch(fetchCampers(filters));
+  
    dispatch(incrementPage());
 
    
  };
   
-
-  if(campers.length === 0 ){
-   return <p className={css.oppsText}>Opps , something went wrong, please reload your page</p>;
-} 
    return(
       <>
    
@@ -63,8 +54,9 @@ export const TrackList = () => {
             </li>
           ))}
           </ul>
-        
+
           {isLoading && <Loader />}
+          {campers.length === 0 && !isLoading && <p className={css.oppsText}>Oups, there is no campers like that</p>}
           {hasNextPage &&  <button onClick={handleLoadMore } className={css.loadMoreBtn}>Load More</button>}
   </div>
    
