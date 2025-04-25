@@ -52,12 +52,12 @@ export const CatalogForm = () => {
     console.log('Submitting filters:', filters);
     dispatch(setLocation(filters.location));
   
-    Object.entries(filters.equipment).forEach(([name, checked]) => {
-      dispatch(toggleFilter({name, checked}));
-    })
+    // Object.entries(filters.equipment).forEach(([name, checked]) => {
+    //   dispatch(toggleFilter({name, checked}));
+    // })
     dispatch(setForm(filters.form));
    
-    dispatch(fetchCampers({ page: 1, limit, ...filters }));
+    // dispatch(fetchCampers({ page: 1, limit, ...filters }));
   };
 
   return (

@@ -10,7 +10,7 @@ import { Track} from "../Track/Track.jsx";
 import { selectIsLoading } from "../../redux/campers/selectors.js";
 import { Loader } from "../Loader/Loader.jsx";
 import { useEffect } from "react";
-
+import { resetPage } from "../../redux/campers/slice.js";
 export const TrackList = () => {
    const dispatch = useDispatch();
    const page = useSelector(selectCurrentPage);
@@ -18,22 +18,32 @@ export const TrackList = () => {
    const hasNextPage = useSelector(selectHasNextPage);
    const campers = useSelector(selectCampers);
    const isLoading = useSelector(selectIsLoading);
-   const filters = useSelector(selectUserFilters);
-   
+   const filtersAll = useSelector(selectUserFilters);
    useEffect(() => {
-      dispatch(fetchCampers({
-        page,
-        limit,
-        ...filters,
-      }));
-    }, [dispatch, page, limit, filters]);
+  dispatch(resetPage());
+}, [dispatch, filtersAll]);
+
+      useEffect(() => {    
+    
   
-
-
-
+    const filters = {
+       page, 
+       limit,       
+       ...filtersAll
+    };
+     
+    dispatch(fetchCampers(filters)); 
+ }, [dispatch, limit, filtersAll, page]);
+   
  const handleLoadMore = () => {
-  
-    dispatch(incrementPage());
+   // const nextPage = page + 1;
+   // const filters = {
+   //    page: nextPage,
+   //    limit,
+   //    ...filtersAll
+   // }
+   // dispatch(fetchCampers(filters));
+   dispatch(incrementPage());
 
    
  };
@@ -64,19 +74,7 @@ export const TrackList = () => {
 }
  
 
-//    useEffect(() => {    
-//     dispatch(resetPage());
-  
-//     const filters ={
-//        page: 1, 
-//        limit,       
-//        form,
-//        location,
-//        equipment 
-//     };
-     
-//     dispatch(fetchCampers(filters)); 
-//  }, [dispatch, limit,form,location, equipment,]);
+
 
 
  //  const nextPage = page + 1;  
